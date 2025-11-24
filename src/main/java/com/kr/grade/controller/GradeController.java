@@ -16,6 +16,7 @@ public class GradeController {
 
     @GetMapping("/")
     public ModelAndView index(ModelAndView mav) {
+        log.info("◆ 메인 페이지 이동");
 
         mav.addObject("categories", gradeService.getCategory());
         mav.addObject("subjectCount", gradeService.getSubjectCount());

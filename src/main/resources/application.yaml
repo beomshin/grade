@@ -25,3 +25,4 @@ spring:
 server:
   servlet:
     context-path: /
+  forward-headers-strategy: framework

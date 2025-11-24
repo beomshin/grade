@@ -105,6 +105,9 @@ function initializePage() {
         document.getElementById('submitBtn').addEventListener('click', submitRanking);
         document.getElementById('closeModal')?.addEventListener('click', closeModal);
     }
+
+
+
 }
 
 document.querySelectorAll(".tab-btn").forEach(btn => {
@@ -116,6 +119,28 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
         document.querySelectorAll(".tier-pyramid").forEach(tp => tp.classList.remove("active"));
         document.getElementById(target).classList.add("active");
     });
+});
+
+// 공유 버튼 클릭
+document.getElementById("shareBtn").addEventListener("click", async () => {
+    const shareData = {
+        title: document.title,
+        text: "등급표 보러가기!",
+        url: window.location.href
+    };
+
+    // Web Share API 지원 시
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+        } catch (e) {
+            console.log("공유 취소", e);
+        }
+        return;
+    }
+
+    // 지원 안되면 → fallback 모달 오픈
+    document.getElementById("shareModal").style.display = "flex";
 });
 
 // 등급표 작성 페이지 로드

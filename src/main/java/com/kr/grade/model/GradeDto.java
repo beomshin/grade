@@ -36,14 +36,14 @@ public class GradeDto {
 
             case S -> {
                 items.add(new ItemDto("Faker", "/img/lck/t1.png"));
-                items.add(new ItemDto("Chovy", "/img/lck/geng.png"));
                 items.add(new ItemDto("Gumayusi", "/img/lck/t1.png"));
+                items.add(new ItemDto("Oner", "/img/lck/t1.png"));
                 items.add(new ItemDto("BDD", "/img/lck/kt.png"));
                 items.add(new ItemDto("Kiin", "/img/lck/geng.png"));
             }
 
             case A -> {
-                items.add(new ItemDto("Oner", "/img/lck/t1.png"));
+                items.add(new ItemDto("Chovy", "/img/lck/geng.png"));
                 items.add(new ItemDto("Keria", "/img/lck/t1.png"));
                 items.add(new ItemDto("Ruler", "/img/lck/geng.png"));
                 items.add(new ItemDto("Duro", "/img/lck/geng.png"));

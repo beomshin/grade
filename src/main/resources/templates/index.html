@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>등급 모아 - 실시간 등급표</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2854516262266649"
+            crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-05WT4V9X4Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-05WT4V9X4Y');
+    </script>
+
 </head>
 <body>
 <nav class="navbar">
@@ -17,6 +30,8 @@
             <li><a href="/" class="active">실시간 등급표</a></li>
 <!--            <li><a href="/create">내 등급표 작성하기</a></li>-->
         </ul>
+
+
     </div>
 </nav>
 
@@ -67,13 +82,27 @@
         </div>
 
         <div class="stats-info">
+            <div class="share-modal" id="shareModal">
+                <div class="share-modal-content">
+                    <p>아래 버튼을 클리해서 복사해서 공유하세요.</p>
+                    <button class="share-btn" id="shareBtn">공유하기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-info">
 <!--            <p>총 투표 수: <strong id="totalVotes">1,234</strong>명</p>-->
             <p class="update-time">본 웹사이트의 내용은 오락적 요소를 포함하고 있으며 실제 사실과 다를 수 있습니다.
 <!--                <span id="lastUpdate">방금 전</span>-->
             </p>
         </div>
+
     </div>
 </main>
+<script>
+    document.getElementById("shareLink").value = window.location.href;
+</script>
+
 
 <script src="/js/script.js"></script>
 </body>
