@@ -74,7 +74,7 @@ public class GradeDto {
                 items.add(new ItemDto("DK", "/img/lck/dk.png"));
                 items.add(new ItemDto("BFX", "/img/lck/bfx.png"));
                 items.add(new ItemDto("NS", "/img/lck/ns.png"));
-                items.add(new ItemDto("BRION", "/img/lck/brion.png"));
+                items.add(new ItemDto("BRION", "/img/lck/bro.png"));
                 items.add(new ItemDto("DRX", "/img/lck/drx.png"));
                 items.add(new ItemDto("DNF", "/img/lck/dnf.png"));
             }

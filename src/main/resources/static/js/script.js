@@ -1,72 +1,179 @@
+const categoryMap = {
+    lck: 0,
+    car: 1,
+    it: 2,
+    estate: 3
+};
+
 // 데이터
 const data = {
     lck: [
-        { name: 'Faker', image: 'https://i.pravatar.cc/150?img=1' },
-        { name: 'Chovy', image: 'https://i.pravatar.cc/150?img=2' },
-        { name: 'Keria', image: 'https://i.pravatar.cc/150?img=3' },
-        { name: 'Doran', image: 'https://i.pravatar.cc/150?img=4' },
-        { name: 'Canyon', image: 'https://i.pravatar.cc/150?img=5' },
-        { name: 'Delight', image: 'https://i.pravatar.cc/150?img=6' },
-        { name: 'Zeka', image: 'https://i.pravatar.cc/150?img=7' },
-        { name: 'Gumayusi', image: 'https://i.pravatar.cc/150?img=8' },
-        { name: 'Zeus', image: 'https://i.pravatar.cc/150?img=9' },
-        { name: 'Oner', image: 'https://i.pravatar.cc/150?img=10' },
-        { name: 'Peyz', image: 'https://i.pravatar.cc/150?img=11' },
-        { name: 'ShowMaker', image: 'https://i.pravatar.cc/150?img=12' },
-        { name: 'Ruler', image: 'https://i.pravatar.cc/150?img=13' },
-        { name: 'Deft', image: 'https://i.pravatar.cc/150?img=14' },
-        { name: 'Peanut', image: 'https://i.pravatar.cc/150?img=15' }
+        { name: 'Doran', image: '/img/lck/t1.png' },
+        { name: 'Oner', image: '/img/lck/t1.png' },
+        { name: 'Faker', image: '/img/lck/t1.png' },
+        { name: 'Peyz', image: '/img/lck/t1.png' },
+        { name: 'Keria', image: '/img/lck/t1.png' },
+
+        { name: 'Kiin', image: '/img/lck/geng.png' },
+        { name: 'Canyon', image: '/img/lck/geng.png' },
+        { name: 'Chovy', image: '/img/lck/geng.png' },
+        { name: 'Ruler', image: '/img/lck/geng.png' },
+        { name: 'Duro', image: '/img/lck/geng.png' },
+
+        { name: 'Zeus', image: '/img/lck/hanwha.png' },
+        { name: 'Kanavi', image: '/img/lck/hanwha.png' },
+        { name: 'Zeka', image: '/img/lck/hanwha.png' },
+        { name: 'Gumayusi', image: '/img/lck/hanwha.png' },
+        { name: 'Delight', image: '/img/lck/hanwha.png' },
+
+        { name: 'Siwoo', image: '/img/lck/dk.png' },
+        { name: 'Lucid', image: '/img/lck/dk.png' },
+        { name: 'ShowMaker', image: '/img/lck/dk.png' },
+        { name: 'Smash', image: '/img/lck/dk.png' },
+        { name: 'Career', image: '/img/lck/dk.png' },
+
+        { name: 'Kingen', image: '/img/lck/ns.png' },
+        { name: 'Sponge', image: '/img/lck/ns.png' },
+        { name: 'Scout', image: '/img/lck/ns.png' },
+        { name: 'Calix', image: '/img/lck/ns.png' },
+        { name: 'Taeyoon', image: '/img/lck/ns.png' },
+        { name: 'Lehends', image: '/img/lck/ns.png' },
+
+        { name: 'PerfecT', image: '/img/lck/kt.png' },
+        { name: 'Cuzz', image: '/img/lck/kt.png' },
+        { name: 'Bdd', image: '/img/lck/kt.png' },
+        { name: 'Aiming', image: '/img/lck/kt.png' },
+        { name: 'Ghost', image: '/img/lck/kt.png' },
+        { name: 'Pollu', image: '/img/lck/kt.png' },
+
+        { name: 'Clear', image: '/img/lck/bfx.png' },
+        { name: 'Raptor', image: '/img/lck/bfx.png' },
+        { name: 'VicLa', image: '/img/lck/bfx.png' },
+        { name: 'Daystar', image: '/img/lck/bfx.png' },
+        { name: 'Diable', image: '/img/lck/bfx.png' },
+        { name: 'Kellin', image: '/img/lck/bfx.png' },
+
+        { name: 'Rich', image: '/img/lck/drx.png' },
+        { name: 'Vincenzo', image: '/img/lck/drx.png' },
+        { name: 'Willer', image: '/img/lck/drx.png' },
+        { name: 'Jiwoo', image: '/img/lck/drx.png' },
+        { name: 'Andil', image: '/img/lck/drx.png' },
+
+        { name: 'Casting', image: '/img/lck/bro.png' },
+        { name: 'GIDEON', image: '/img/lck/bro.png' },
+        { name: 'Fisher', image: '/img/lck/bro.png' },
+        { name: 'Teddy', image: '/img/lck/bro.png' },
+        { name: 'Namgung', image: '/img/lck/bro.png' },
+
+        { name: 'DuDu', image: '/img/lck/dnf.png' },
+        { name: 'Pyosik', image: '/img/lck/dnf.png' },
+        { name: 'Clozer', image: '/img/lck/dnf.png' },
+        { name: 'deokdam', image: '/img/lck/dnf.png' },
+        { name: 'Life', image: '/img/lck/dnf.png' },
+        { name: 'Peter', image: '/img/lck/dnf.png' },
+
     ],
     car: [
-        { name: '벤츠', image: 'https://logo.clearbit.com/mercedes-benz.com' },
-        { name: 'BMW', image: 'https://logo.clearbit.com/bmw.com' },
-        { name: '아우디', image: 'https://logo.clearbit.com/audi.com' },
-        { name: '제네시스', image: 'https://logo.clearbit.com/genesis.com' },
-        { name: '테슬라', image: 'https://logo.clearbit.com/tesla.com' },
-        { name: '포르쉐', image: 'https://logo.clearbit.com/porsche.com' },
-        { name: '렉서스', image: 'https://logo.clearbit.com/lexus.com' },
-        { name: '페라리', image: 'https://logo.clearbit.com/ferrari.com' },
-        { name: '람보르기니', image: 'https://logo.clearbit.com/lamborghini.com' },
-        { name: '현대', image: 'https://logo.clearbit.com/hyundai.com' },
-        { name: '기아', image: 'https://logo.clearbit.com/kia.com' },
-        { name: '토요타', image: 'https://logo.clearbit.com/toyota.com' },
-        { name: '폭스바겐', image: 'https://logo.clearbit.com/vw.com' },
-        { name: '볼보', image: 'https://logo.clearbit.com/volvo.com' },
-        { name: '재규어', image: 'https://logo.clearbit.com/jaguar.com' }
+        { name: "Bugatti", image: "/img/car/bugatti.png" },
+        { name: "Koenigsegg", image: "/img/car/koenigsegg.png" },
+        { name: "Pagani", image: "/img/car/pagani.png" },
+        { name: "Lamborghini", image: "/img/car/lamborghini.jpg" },
+        { name: "Ferrari", image: "/img/car/ferrari.jpg" },
+        { name: "McLaren", image: "/img/car/mcLaren.png" },
+        { name: "Rolls-Royce", image: "/img/car/rolls-royce.png" },
+        { name: "Maserati", image: "/img/car/maserati.png" },
+        { name: "Bentley", image: "/img/car/bentley.png" },
+        { name: "Aston Martin", image: "/img/car/aston-martin.png" },
+        { name: "Maybach", image: "/img/car/maybach.png" },
+        { name: "Porsche", image: "/img/car/porsche.png" },
+        { name: "Land Rover", image: "/img/car/land-rover.png" },
+        { name: "Mercedes-Benz", image: "/img/car/benz.png" },
+        { name: "Audi", image: "/img/car/audi.png" },
+        { name: "BMW", image: "/img/car/bmw.png" },
+        { name: "Lincoln", image: "/img/car/lincoln.png" },
+        { name: "Jaguar", image: "/img/car/jaguar.png" },
+        { name: "Cadillac", image: "/img/car/cadillac.png" },
+        { name: "Lexus", image: "/img/car/lexus.png" },
+        { name: "Volvo", image: "/img/car/volvo.png" },
+        { name: "Genesis", image: "/img/car/genesis.png" },
+        { name: "Tesla", image: "/img/car/tesla.png" },
+        { name: "Acura", image: "/img/car/acura.png" },
+        { name: "Polestar", image: "/img/car/polestar.png" },
+        { name: "Honda", image: "/img/car/honda.png" },
+        { name: "Hyundai", image: "/img/car/hyundai.png" },
+        { name: "KG Mobility", image: "/img/car/kgm.png" },
+        { name: "Renault", image: "/img/car/renault.png" },
+        { name: "Kia", image: "/img/car/kia.png" },
+        { name: "Volkswagen", image: "/img/car/volkswagen.png" },
+        { name: "Peugeot", image: "/img/car/peugeot.png" },
+        { name: "Toyota", image: "/img/car/toyota.png" },
+        { name: "MINI", image: "/img/car/mini.png" },
+        { name: "BYD", image: "/img/car/byd.png" },
+        { name: "Chevrolet", image: "/img/car/chevrolet.png" },
+        { name: "Citroën", image: "/img/car/citroën.png" },
+        { name: "Ford", image: "/img/car/ford.png" },
+        { name: "Jeep", image: "/img/car/jeep.png" },
+        { name: "DS Automobiles", image: "/img/car/ds-automobiles.png" },
+        { name: "Mazda", image: "/img/car/mazda.png" },
+        { name: "Infiniti", image: "/img/car/infiniti.png" },
+        { name: "Nissan", image: "/img/car/nissan.png" }
     ],
     it: [
-        { name: '삼성전자', image: 'https://logo.clearbit.com/samsung.com' },
-        { name: '애플', image: 'https://logo.clearbit.com/apple.com' },
-        { name: '구글', image: 'https://logo.clearbit.com/google.com' },
-        { name: '마이크로소프트', image: 'https://logo.clearbit.com/microsoft.com' },
-        { name: '네이버', image: 'https://logo.clearbit.com/naver.com' },
-        { name: '카카오', image: 'https://logo.clearbit.com/kakao.com' },
-        { name: '아마존', image: 'https://logo.clearbit.com/amazon.com' },
-        { name: '메타', image: 'https://logo.clearbit.com/meta.com' },
-        { name: '테슬라', image: 'https://logo.clearbit.com/tesla.com' },
-        { name: 'SK하이닉스', image: 'https://logo.clearbit.com/skhynix.com' },
-        { name: 'LG전자', image: 'https://logo.clearbit.com/lge.com' },
-        { name: '엔비디아', image: 'https://logo.clearbit.com/nvidia.com' },
-        { name: 'AMD', image: 'https://logo.clearbit.com/amd.com' },
-        { name: '인텔', image: 'https://logo.clearbit.com/intel.com' },
-        { name: '오라클', image: 'https://logo.clearbit.com/oracle.com' }
+        { name: "Nvidia", image: "/img/it/nvidia.png" },
+        { name: "Google", image: "/img/it/google.png" },
+        { name: "Moloco", image: "/img/it/moloco.png" },
+        { name: "두나무", image: "/img/it/donamu.png" },
+        { name: "Qualcomm", image: "/img/it/qualcomm.png" },
+        { name: "AWS", image: "/img/it/aws.png" },
+        { name: "Microsoft", image: "/img/it/ms.png" },
+        { name: "SK Telecom", image: "/img/it/sk.jpg" },
+        { name: "Naver", image: "/img/it/naver.png" },
+        { name: "Kakao", image: "/img/it/kakao.png" },
+        { name: "LINE", image: "/img/it/line.png" },
+        { name: "Coupang", image: "/img/it/coupang.png" },
+        { name: "배민", image: "/img/it/bamin.png" },
+        { name: "삼성전자", image: "/img/it/samsung.png" },
+        { name: "현대차", image: "/img/it/hyundai.png" },
+        { name: "Toss", image: "/img/it/toss.png" },
+        { name: "Nexon", image: "/img/it/nexon.png" },
+        { name: "Tmap", image: "/img/it/tmap.png" },
+        { name: "삼성 SDS", image: "/img/it/samsungsds.png" },
+        { name: "현대오토에버", image: "/img/it/hyundaiautoever.png" },
+        { name: "크래프톤", image: "/img/it/krafton.png" },
+        { name: "당근마켓", image: "/img/it/carrot.png" },
+        { name: "LG CNS", image: "/img/it/lgcns.png" },
+        { name: "SSG", image: "/img/it/ssg.png" },
+        { name: "무신사", image: "/img/it/musinsa.png" },
+        { name: "야놀자", image: "/img/it/yanolja.png" },
+        { name: "여기어때", image: "/img/it/howplace.jpg" },
+        { name: "NHN", image: "/img/it/nhn.png" }
     ],
     estate: [
-        { name: '강남구', image: '' },
-        { name: '서초구', image: '' },
-        { name: '송파구', image: '' },
-        { name: '용산구', image: '' },
-        { name: '마포구', image: '' },
-        { name: '성동구', image: '' },
-        { name: '광진구', image: '' },
-        { name: '강동구', image: '' },
-        { name: '양천구', image: '' },
-        { name: '영등포구', image: '' },
-        { name: '동작구', image: '' },
-        { name: '관악구', image: '' },
-        { name: '강서구', image: '' },
-        { name: '구로구', image: '' },
-        { name: '금천구', image: '' }
+        { name: "강남구", image: "/img/realestate/gangnam.png" },
+        { name: "서초구", image: "/img/realestate/seocho.jpg" },
+        { name: "용산구", image: "/img/realestate/yongsan.png" },
+        { name: "송파구", image: "/img/realestate/songpa.png" },
+        { name: "마포구", image: "/img/realestate/mapo.png" },
+        { name: "성동구", image: "/img/realestate/seongdong.png" },
+        { name: "광진구", image: "/img/realestate/gwangjin.png" },
+        { name: "양천구", image: "/img/realestate/yangcheon.png" },
+        { name: "영등포구", image: "/img/realestate/yeongdeungpo.png" },
+        { name: "동작구", image: "/img/realestate/dongjak.png" },
+        { name: "중구", image: "/img/realestate/junggu.png" },
+        { name: "강동구", image: "/img/realestate/ganado.png" },
+        { name: "종로구", image: "/img/realestate/jongno.png" },
+        { name: "서대문구", image: "/img/realestate/gangseo.png" }, // 주석: 이미지 경로 확인 필요
+        { name: "강서구", image: "/img/realestate/gangseo.png" },
+        { name: "동대문구", image: "/img/realestate/dongdaemun.png" },
+        { name: "성북구", image: "/img/realestate/seongbuk.png" },
+        { name: "은평구", image: "/img/realestate/eunpyeong.png" },
+        { name: "관악구", image: "/img/realestate/gwanak.png" },
+        { name: "노원구", image: "/img/realestate/nowon.png" },
+        { name: "구로구", image: "/img/realestate/guro.png" },
+        { name: "중랑구", image: "/img/realestate/jungnang.png" },
+        { name: "금천구", image: "/img/realestate/geumcheon.png" },
+        { name: "강북구", image: "/img/realestate/gangbuk.png" },
+        { name: "도봉구", image: "/img/realestate/dobong.png" }
     ]
 };
 
@@ -115,9 +222,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
         document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        const target = btn.dataset.target;
         document.querySelectorAll(".tier-pyramid").forEach(tp => tp.classList.remove("active"));
-        document.getElementById(target).classList.add("active");
     });
 });
 
@@ -292,13 +397,23 @@ function resetTiers() {
 
 // 제출
 function submitRanking() {
-    const ranking = {};
+    const resultArray = [];
     let totalItems = 0;
 
+    const categoryNumber = categoryMap[currentCategory]; // 현재 카테고리 번호 변환
+
     document.querySelectorAll('.drop-zone').forEach(zone => {
-        const tier = zone.dataset.tier;
-        const items = Array.from(zone.querySelectorAll('.tier-item')).map(el => el.textContent);
-        ranking[tier] = items;
+        const tier = zone.dataset.tier;  // S, A, B, C, D, F
+        const items = Array.from(zone.querySelectorAll('.tier-item'));
+
+        items.forEach(el => {
+            resultArray.push({
+                name: el.dataset.item,
+                grade: tier,
+                category: categoryNumber
+            });
+        });
+
         totalItems += items.length;
     });
 
@@ -307,19 +422,39 @@ function submitRanking() {
         return;
     }
 
-    console.log('제출된 등급표:', ranking);
+    $.ajax({
+        url: '/vote',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            ranks: resultArray
+        }),
 
-    // 모달 표시
-    const modal = document.getElementById('successModal');
-    modal.classList.add('show');
+        success: function (response) {
+            console.log("서버 응답:", response);
 
-    // 2초 후 실시간 등급표로 이동
-    setTimeout(() => {
-        window.location.href = 'index.html';
-    }, 2000);
+            // 성공 모달 표시
+            const modal = document.getElementById('successModal');
+            modal.classList.add('show');
+
+            // 리다이렉트
+            setTimeout(() => {
+                window.location.replace('/');
+            }, 5000);
+        },
+
+        error: function (xhr, status, error) {
+            console.error("AJAX 오류:", error);
+            console.error(xhr.responseText);
+            alert("서버 전송 중 오류가 발생했습니다.");
+        }
+    });
+
 }
+
 
 function closeModal() {
     const modal = document.getElementById('successModal');
     modal.classList.remove('show');
+    window.location.replace('/');
 }

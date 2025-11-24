@@ -1,10 +1,15 @@
 package com.kr.grade.controller;
 
+import com.kr.grade.model.RankDto;
+import com.kr.grade.model.request.VoteRequest;
 import com.kr.grade.service.GradeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
@@ -30,4 +35,13 @@ public class GradeController {
         return "create";
     }
 
+    @PostMapping("/vote")
+    public ResponseEntity<?> vote(
+            @RequestBody VoteRequest request
+            ) {
+
+        log.info("{}", request);
+
+        return ResponseEntity.ok().body(null);
+    }
 }
