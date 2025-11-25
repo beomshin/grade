@@ -38,10 +38,12 @@ public class GradeController {
     @PostMapping("/vote")
     public ResponseEntity<?> vote(
             @RequestBody VoteRequest request
-            ) {
-
-        log.info("{}", request);
-
-        return ResponseEntity.ok().body(null);
+    ) {
+        boolean isSuccess = gradeService.vote(request);
+        if (isSuccess) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }
