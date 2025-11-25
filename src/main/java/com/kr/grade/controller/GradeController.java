@@ -1,6 +1,5 @@
 package com.kr.grade.controller;
 
-import com.kr.grade.model.RankDto;
 import com.kr.grade.model.request.VoteRequest;
 import com.kr.grade.service.GradeService;
 import lombok.RequiredArgsConstructor;
@@ -22,23 +21,25 @@ public class GradeController {
     @GetMapping("/")
     public ModelAndView index(ModelAndView mav) {
         log.info("◆ 메인 페이지 이동");
-
         mav.addObject("categories", gradeService.getCategory());
         mav.addObject("subjectCount", gradeService.getSubjectCount());
         mav.setViewName("index");
-
         return mav;
     }
 
     @GetMapping("/create")
-    public String create() {
-        return "create";
+    public ModelAndView create(ModelAndView mav) {
+        log.info("◆ 작성 페이지 이동");
+        mav.addObject("subjects", gradeService.getSubject());
+        mav.setViewName("create");
+        return mav;
     }
 
     @PostMapping("/vote")
     public ResponseEntity<?> vote(
             @RequestBody VoteRequest request
     ) {
+        log.info("◆ 유저 투표 처리");
         boolean isSuccess = gradeService.vote(request);
         if (isSuccess) {
             return ResponseEntity.ok().build();

@@ -3,13 +3,22 @@ package com.kr.grade.service;
 import com.kr.grade.constants.Category;
 import com.kr.grade.model.CategoryDto;
 import com.kr.grade.model.request.VoteRequest;
+import com.kr.grade.persistence.entity.SubjectEntity;
+import com.kr.grade.persistence.entity.VoteCountEntity;
 import com.kr.grade.persistence.entity.VoteEntity;
+import com.kr.grade.persistence.repository.SubjectRepository;
+import com.kr.grade.persistence.repository.VoteCountRepository;
 import com.kr.grade.persistence.repository.VoteRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -18,6 +27,8 @@ import java.util.stream.Collectors;
 public class GradeServiceImpl implements GradeService {
 
     private final VoteRepository voteRepository;
+    private final VoteCountRepository voteCountRepository;
+    private final SubjectRepository subjectRepository;
 
     @Override
     public List<CategoryDto> getCategory() {
@@ -30,24 +41,45 @@ public class GradeServiceImpl implements GradeService {
     }
 
     @Override
-    public Integer getSubjectCount() {
-        return 0;
+    public List<SubjectEntity> getSubject() {
+        return subjectRepository.findAll();
     }
 
     @Override
+    public Long getSubjectCount() {
+        LocalDate today = LocalDate.now();
+        LocalDate startOfWeek = today.with(DayOfWeek.MONDAY);
+        LocalDate endOfWeek = today.with(DayOfWeek.SATURDAY);
+
+        LocalDateTime start = startOfWeek.atStartOfDay();
+        LocalDateTime end = endOfWeek.plusDays(1).atStartOfDay();
+
+        return voteCountRepository.countByRegDtBetween(start, end);
+    }
+
+    @Override
+    @Transactional
     public boolean vote(VoteRequest request) {
         try {
             List<VoteEntity> votes = request.getRanks().stream()
                     .map(it -> VoteEntity
                             .builder()
+                            .subjectEntity(SubjectEntity.builder()
+                                    .id(it.getId())
+                                    .build())
                             .name(it.getName())
                             .category(it.getCategory())
                             .grade(it.getGrade())
+                            .score(it.getScore())
                             .build())
                     .collect(Collectors.toUnmodifiableList());
 
-            log.info("◆ 투표하기 저장");
+            String token = UUID.randomUUID().toString().replace("-", "").substring(0, 32);
+            log.info("◆ 투표하기 저장 시작 : {}개 , token {}", votes.size(), token);
             voteRepository.saveAll(votes);
+            voteCountRepository.save(VoteCountEntity.builder().token(token).build());
+
+            log.info("◆ 투표하기 저장 종료");
 
             return true;
         } catch (Exception e) {
