@@ -6,8 +6,11 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface StatisticsRepository extends JpaRepository<StatisticsEntity, Long> {
 
+    List<StatisticsEntity> findByRound(int round);
 
     @Modifying
     @Query("UPDATE statistics s SET s.score = s.score + :value " +

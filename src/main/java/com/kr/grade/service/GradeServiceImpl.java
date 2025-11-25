@@ -3,9 +3,11 @@ package com.kr.grade.service;
 import com.kr.grade.constants.Category;
 import com.kr.grade.model.CategoryDto;
 import com.kr.grade.model.request.VoteRequest;
+import com.kr.grade.persistence.entity.StatisticsEntity;
 import com.kr.grade.persistence.entity.SubjectEntity;
 import com.kr.grade.persistence.entity.VoteCountEntity;
 import com.kr.grade.persistence.entity.VoteEntity;
+import com.kr.grade.persistence.repository.StatisticsRepository;
 import com.kr.grade.persistence.repository.SubjectRepository;
 import com.kr.grade.persistence.repository.VoteCountRepository;
 import com.kr.grade.persistence.repository.VoteRepository;
@@ -29,14 +31,17 @@ public class GradeServiceImpl implements GradeService {
     private final VoteRepository voteRepository;
     private final VoteCountRepository voteCountRepository;
     private final SubjectRepository subjectRepository;
+    private final StatisticsRepository statisticsRepository;
 
     @Override
     public List<CategoryDto> getCategory() {
+        List<StatisticsEntity> list = statisticsRepository.findByRound(0);
+
         return List.of(
-                new CategoryDto(Category.LCK),
-                new CategoryDto(Category.IT),
-                new CategoryDto(Category.CAR),
-                new CategoryDto(Category.REAL_ESTATE)
+                new CategoryDto(Category.LCK, list.stream().filter(it -> it.getCategory() == 0).toList()),
+                new CategoryDto(Category.CAR, list.stream().filter(it -> it.getCategory() == 1).toList()),
+                new CategoryDto(Category.IT, list.stream().filter(it -> it.getCategory() == 2).toList()),
+                new CategoryDto(Category.REAL_ESTATE, list.stream().filter(it -> it.getCategory() == 3).toList())
         );
     }
 

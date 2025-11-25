@@ -29,10 +29,10 @@ public class RankDto {
             case B -> {
                 return 3;
             }
-            case D -> {
+            case C -> {
                 return 2;
             }
-            case C -> {
+            case D -> {
                 return 1;
             }
             case F -> {
