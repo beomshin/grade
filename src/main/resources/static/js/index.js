@@ -143,6 +143,10 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
     document.getElementById("shareModal").style.display = "flex";
 });
 
+document.getElementById("voteBtn").addEventListener('click', ()=> {
+    window.location.href = '/create'
+})
+
 // 등급표 작성 페이지 로드
 function loadCreatePage() {
     const pool = document.getElementById('itemsPool');

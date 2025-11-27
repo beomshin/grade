@@ -84,6 +84,15 @@
         </div>
 
         <div class="stats-info">
+            <div class="share-modal">
+                <div class="share-modal-content">
+                    <p>아래 버튼을 클릭해서 투표 해보세요.</p>
+                    <button class="share-btn" id="voteBtn" >투표하러 가기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-info">
             <p>실시간 주간 투표 수:  <strong id="totalVotes" th:text="${#numbers.formatInteger(subjectCount, 3, 'COMMA')}"></strong>명</p>
             <p class="update-time">본 웹사이트의 내용은 오락적 요소를 포함하고 있으며 실제 사실과 다를 수 있습니다.<br>
                 <span id="lastUpdate">방금 전</span>
@@ -93,7 +102,7 @@
         <div class="stats-info">
             <div class="share-modal" id="shareModal">
                 <div class="share-modal-content">
-                    <p>아래 버튼을 클리해서 복사해서 공유하세요.</p>
+                    <p>아래 버튼을 클릭해서 복사해서 공유하세요.</p>
                     <button class="share-btn" id="shareBtn">공유하기</button>
                 </div>
             </div>
