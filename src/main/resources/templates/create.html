@@ -43,10 +43,11 @@
     </div>
 
     <div class="category-tabs">
-      <button class="tab-btn active" data-category="lck">2026 LCK 선수</button>
-      <button class="tab-btn" data-category="car">자동차 브랜드</button>
-      <button class="tab-btn" data-category="it">IT 기업</button>
-      <button class="tab-btn" data-category="estate">서울 부동산</button>
+      <button class="tab-btn active" data-category="lck_2026_rank" data-number="5">2026 LCK 순위</button>
+      <button class="tab-btn" data-category="lck" data-number="0">2026 LCK 선수</button>
+<!--      <button class="tab-btn" data-category="car">자동차 브랜드</button>-->
+<!--      <button class="tab-btn" data-category="it">IT 기업</button>-->
+<!--      <button class="tab-btn" data-category="estate">서울 부동산</button>-->
     </div>
 
     <div class="create-container">
@@ -57,7 +58,7 @@
             <th:block th:each="item : ${subjects}">
               <div class="tier-item" draggable="true" th:data-item="${item.name}" th:data-id="${item.id}"
                    th:classappend="'item-' + ${item.category}"
-                th:style="${item.category == 0} ? '' : 'display:none'"
+                th:style="${item.category == 5} ? '' : 'display:none'"
               >
                 <span class="tier-item-name" th:text="${item.name}"></span>
                 <img class="tier-item-image" th:src="${item.img}" th:alt="${item.name}">

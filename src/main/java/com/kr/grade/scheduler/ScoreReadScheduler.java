@@ -43,27 +43,27 @@ public class ScoreReadScheduler {
 
             switch (Grade.getGrade(voteEntity.getGrade().toLowerCase())) {
 
-                case S -> {
+                case S, RANK_1 -> {
                     statisticsRepository.increaseScnt(voteEntity.getCategory(), voteEntity.getName(), voteEntity.getScore(), round);
                 }
 
-                case A -> {
+                case A, RANK_2 -> {
                     statisticsRepository.increaseAcnt(voteEntity.getCategory(), voteEntity.getName(), voteEntity.getScore(), round);
                 }
 
-                case B -> {
+                case B, RANK_3 -> {
                     statisticsRepository.increaseBcnt(voteEntity.getCategory(), voteEntity.getName(), voteEntity.getScore(), round);
                 }
 
-                case C -> {
+                case C, RANK_4 -> {
                     statisticsRepository.increaseCcnt(voteEntity.getCategory(), voteEntity.getName(), voteEntity.getScore(), round);
                 }
 
-                case D -> {
+                case D, RANK_5 -> {
                     statisticsRepository.increaseDcnt(voteEntity.getCategory(), voteEntity.getName(), voteEntity.getScore(), round);
                 }
 
-                case F -> {
+                case F, RANK_6 -> {
                     statisticsRepository.increaseFcnt(voteEntity.getCategory(), voteEntity.getName(), voteEntity.getScore(), round);
                 }
 

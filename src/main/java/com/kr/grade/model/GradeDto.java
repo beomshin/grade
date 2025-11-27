@@ -19,7 +19,9 @@ public class GradeDto {
 
     public GradeDto(Grade grade, List<StatisticsEntity> statistics) {
         this.grade = grade.getValue();
-        this.items = statistics.stream().map(it ->  new ItemDto(it.getName(), it.getImg())).toList();
+        this.items = statistics.stream().map(it ->  new ItemDto(
+                    it.getName() + "(" + it.getScore() + ")"
+                , it.getImg())).toList();
     }
 
 }

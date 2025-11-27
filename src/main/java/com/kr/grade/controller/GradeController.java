@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor
@@ -23,6 +25,7 @@ public class GradeController {
         log.info("◆ 메인 페이지 이동");
         mav.addObject("categories", gradeService.getCategory());
         mav.addObject("subjectCount", gradeService.getSubjectCount());
+        mav.addObject("tier", Arrays.asList("s", "a", "b", "c", "d", "f"));
         mav.setViewName("index");
         return mav;
     }

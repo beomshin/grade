@@ -41,6 +41,24 @@ public class RankDto {
             case null -> {
                 return 0;
             }
+            case RANK_1 -> {
+                return 5;
+            }
+            case RANK_2 -> {
+                return 4;
+            }
+            case RANK_3 -> {
+                return 3;
+            }
+            case RANK_4 -> {
+                return 2;
+            }
+            case RANK_5 -> {
+                return 1;
+            }
+            case RANK_6 -> {
+                return 0;
+            }
         }
     }
 

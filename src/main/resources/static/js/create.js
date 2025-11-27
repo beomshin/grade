@@ -1,11 +1,12 @@
 const categoryMap = {
-    lck: 0,
+    lck_2026_person: 0,
     car: 1,
     it: 2,
-    estate: 3
+    estate: 3,
+    lck_2026_rank: 5
 };
 
-let currentCategory = 'lck';
+let currentCategory = 'lck_2026_rank';
 let draggedElement = null;
 
 // 페이지 로드 시 초기화
@@ -26,7 +27,7 @@ function initializePage() {
                     item.style.display = "none";
                 });
 
-                const targetClass = `.item-${index}`;
+                const targetClass = `.item-${e.target.dataset.number}`;
                 document.querySelectorAll(targetClass).forEach(item => {
                     item.style.display = "flex";  // 혹은 block, inline-flex 등 UI에 맞게
                 });

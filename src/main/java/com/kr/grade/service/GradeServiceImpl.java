@@ -38,16 +38,14 @@ public class GradeServiceImpl implements GradeService {
         List<StatisticsEntity> list = statisticsRepository.findByRound(0);
 
         return List.of(
-                new CategoryDto(Category.LCK, list.stream().filter(it -> it.getCategory() == 0).toList()),
-                new CategoryDto(Category.CAR, list.stream().filter(it -> it.getCategory() == 1).toList()),
-                new CategoryDto(Category.IT, list.stream().filter(it -> it.getCategory() == 2).toList()),
-                new CategoryDto(Category.REAL_ESTATE, list.stream().filter(it -> it.getCategory() == 3).toList())
+                new CategoryDto(Category.LCK_2026_RANK, list.stream().filter(it -> it.getCategory() == 5).toList()),
+                new CategoryDto(Category.LCK_PERSON, list.stream().filter(it -> it.getCategory() == 0).toList())
         );
     }
 
     @Override
     public List<SubjectEntity> getSubject() {
-        return subjectRepository.findAll();
+        return subjectRepository.findAll().stream().filter(subject -> subject.getCategory() == 5 || subject.getCategory() == 0).toList();
     }
 
     @Override

@@ -12,7 +12,15 @@ public enum Grade {
     B("b"),
     C("c"),
     D("d"),
-    F("f")
+    F("f"),
+
+
+    RANK_1("1위"),
+    RANK_2("2위"),
+    RANK_3("3위"),
+    RANK_4("4위"),
+    RANK_5("5위"),
+    RANK_6("RISE")
     ;
 
     private final String value;

@@ -26,7 +26,18 @@ public class CategoryDto {
 
         switch (category) {
 
-            case LCK -> {
+            case LCK_2026_RANK -> {
+                this.grades = List.of(
+                        new GradeDto(Grade.RANK_1, data.subList(0, 1)),
+                        new GradeDto(Grade.RANK_2, data.subList(1, 2)),
+                        new GradeDto(Grade.RANK_3, data.subList(2, 3)),
+                        new GradeDto(Grade.RANK_4, data.subList(3, 4)),
+                        new GradeDto(Grade.RANK_5, data.subList(4, 5)),
+                        new GradeDto(Grade.RANK_6, data.subList(5, data.size()))
+                );
+            }
+
+            case LCK_PERSON -> {
                 this.grades = List.of(
                         new GradeDto(Grade.S, data.subList(0, 8)),
                         new GradeDto(Grade.A, data.subList(8, 15)),
